@@ -1,0 +1,4 @@
+Database94
+
+
+mongosh "mongodb+srv://indexcluster.rwhjy.mongodb.net/myFirstDatabase" --apiVersion 1 --username jasebs94

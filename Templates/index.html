@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="style1.css">
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style1.css')}}">
+    <title>Chatbot</title>
+</head>
+
+<body>
+    <div class="wrapper" id="chatbott" style="display:none">
+        <div class="title">Chat With Us</div>
+        <div class="box scroll-box">
+            <div class="item">
+                <div class="icon">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="msg">
+                    <p>Hello, How are you?</p>
+                </div>
+            </div>
+            <br clear="both">
+            <div class="item right">
+                <div class="msg">
+                    <p>I'm Fine</p>
+                </div>
+            </div>
+            
+        </div>
+
+
+
+        <div class="typing-area">
+            <div class="input-field">
+                <input  id="input" type="text" placeholder="Type your message" required/>
+                <button id="button" class="msg_send_btn" type="button" >Send</button>
+            </div>
+        </div>
+    </div>
+    <div class="chat-btn">
+        <button id="shwbtn" class="btn btn-default icon" value="me"><i class="fa fa-commenting" aria-hidden="true"></i></button>
+
+    </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#shwbtn").click(function() {
+            $("#chatbott").toggle();
+			
+        });
+    });
+	
+	var input = document.getElementById("input");
+	console.log(input)
+	input.addEventListener("keyup", function(event) {
+	if (event.keyCode === 13) {
+    event.preventDefault();
+    document.getElementById("button").click();
+	}
+	});
+
+
+</script>
+</body>
+
+</html>

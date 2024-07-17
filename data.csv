@@ -1,0 +1,67 @@
+Input Text,Intent
+my cooler is not working,CoolerProblem
+issue with cooler,CoolerProblem
+somwthing not working in cooler,CoolerProblem
+cooler issue,CoolerProblem
+cooler getting heated up,CoolerProblem
+my cooler is not working,CoolerProblem
+my cooler is out of order,CoolerProblem
+there is something not right with the cooler,CoolerProblem
+hello there,Greeting
+how are you doing,Greeting
+how are you,Greeting
+hey,Greeting
+hi there,Greeting
+hi,Greeting
+hello,Greeting
+hi good morning,Greeting
+hi good afternoon,Greeting
+hi good evening,Greeting
+Yes I am ready to take the assessment,GreetingResponseYes
+Yes I am ready ,GreetingResponseYes
+"I am good, I am ready to take the assessment",GreetingResponseYes
+I am ready,GreetingResponseYes
+I can take the test today,GreetingResponseYes
+ready,GreetingResponseYes
+all set,GreetingResponseYes
+we can proceed,GreetingResponseYes
+good to go,GreetingResponseYes
+I am ready to take the test,GreetingResponseYes
+I am ready to take the assessment,GreetingResponseYes
+all set to take the assessment,GreetingResponseYes
+all set to take the test,GreetingResponseYes
+all good to take the assessment,GreetingResponseYes
+I am ready for the assessment,GreetingResponseYes
+Yes i am ready,GreetingResponseYes
+Yes I am ready to take the assessment,GreetingResponseYes
+I am ok and ready to take the assessment,GreetingResponseYes
+okie dokie,GreetingResponseYes
+No I am not ready,GreetingResponseNo
+I am not ,GreetingResponseNo
+Could you please reschedule the assessment,GreetingResponseNo
+I am not  feeling well,GreetingResponseNo
+I cannot attend it today,GreetingResponseNo
+Can you reschedule the test?,GreetingResponseNo
+Not today,GreetingResponseNo
+Not sure,GreetingResponseNo
+Sorry I cannot attend the assessment,GreetingResponseNo
+I cannot attend the assessment ,GreetingResponseNo
+"I am not good, I am not ready to take the assessment",GreetingResponseNo
+No I am not ready to take the assessment,GreetingResponseNo
+I cannot take the assessment  today,GreetingResponseNo
+not ready to take the assessment,GreetingResponseNo
+not good to go,GreetingResponseNo
+not set,GreetingResponseNo
+I cannot proceed to take the assessment,GreetingResponseNo
+we can't proceed,GreetingResponseNo
+I can't proceed,GreetingResponseNo
+not okie dokie,GreetingResponseNo
+"I am not ok, I won't be able to take the assessment",GreetingResponseNo
+I cannot write the assessment,GreetingResponseNo
+I cannot attend the assessment ,GreetingResponseNo
+not good to gofor the assessment,GreetingResponseNo
+I don't want to take the assessment ,GreetingResponseNo
+I can't proceed with the assessment,GreetingResponseNo
+I cannot write the assessment,GreetingResponseNo
+won't be able to attend the assessment,GreetingResponseNo
+I don't want to take the assessment ,GreetingResponseNo

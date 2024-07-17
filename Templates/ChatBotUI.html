@@ -1,0 +1,140 @@
+<html>
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!------ Include the above in your HEAD tag ---------->
+<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" type="text/css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+ <script type="text/javascript" src="{{ url_for('static', filename='chat.js') }}"></script>
+
+</head>
+<body>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> 
+<script>
+
+window.onload = function() {
+  var html="<div  class='outgoing_msg'>";
+								html+="<div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='bot'> </div>";
+								html+=" <div class='received_msg'>";
+								html+=" <div class='received_withd_msg'>";
+								html+="<p>Hi! Welcome to RecruitmentBot</p>";
+								html+="<span class='time_date'>"+ {{t.hour }} +"<span>:</span>"+ {{t.minute}} +"</span> ";
+								html+="</div>";
+								html+="</div>";
+								html+="</div>";
+								document.getElementById("message").innerHTML+= html; 
+};
+
+
+function passtext()
+{
+var message=document.getElementById('input').value;
+console.log(message);
+
+         var html1="<div class=outgoing_msg>";
+		 html1+="<div class='sent_msg'>";
+         html1+=" <p>"+ message +"</p>";
+         html1+="<span class='time_date'>"+ {{t.hour }} +"<span>:</span>"+ {{t.minute}} +"</span> ";
+		 html1+="</div>";
+		 html1+="</div>";
+		 document.getElementById("message").innerHTML+= html1; 
+		 
+messages={'message':message};
+ $('input[type="text"]').val('');
+//ajax call
+  $.ajax({
+                type : "POST",
+                url : '/predict',
+                dataType: "text",
+                data:JSON.stringify(messages) ,
+                contentType: 'application/json',
+                success: function (msg) {
+        
+                                console.log(msg);
+								var html="<div  class='outgoing_msg'>";
+								html+="<div class='incoming_msg_img'> <img src='https://ptetutorials.com/images/user-profile.png' alt='bot'> </div>";
+								html+=" <div class='received_msg'>";
+								html+=" <div class='received_withd_msg'>";
+								html+="<p>"+ msg +"</p>";
+								html+="<span class='time_date'>"+ {{t.hour }} +"<span>:</span>"+ {{t.minute}} +"</span> ";
+								html+="</div>";
+								html+="</div>";
+								html+="</div>";
+								document.getElementById("message").innerHTML+= html; 
+								
+        <!-- if (msg=="valid") -->
+        <!-- { -->
+            <!-- window.location.href = "http://localhost:5000/home"; -->
+        <!-- } -->
+        <!-- else if(msg==("invalid")) -->
+        <!-- { -->
+            <!-- alert("invalid"); -->
+        <!-- } -->
+        <!-- else if(msg==("no user")) -->
+        <!-- { -->
+            <!-- alert("no user found"); -->
+        <!-- } -->
+                                }
+    
+    });
+}
+
+</script>
+<div class="container">
+<h3 class=" text-center">Messaging</h3>
+<div  class="messaging">
+      <div  class="inbox_msg">
+        <div class="mesgs">
+          <div id="message" class="msg_history">
+            
+              <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="sunil"> </div> -->
+              <!-- <div class="received_msg"> -->
+                <!-- <div class="received_withd_msg"> -->
+                  <!-- <p>Test which is a new approach to have all -->
+                    <!-- solutions</p> -->
+                  <!-- <span class="time_date"> {{t.hour}}:{{t.minute}}AM    | {{d}}</span> -->
+				  <!-- </div> -->
+              <!-- </div> -->
+            
+              <!-- <div class="sent_msg"> -->
+                <!-- <p>Test which is a new approach to have all -->
+                  <!-- solutions</p> -->
+                <!-- <span class="time_date">{{t.hour}}:{{t.minute}}AM    | {{d}}</span> </div> -->
+          
+		  <!-- <div class="incoming_msg"> -->
+              <!-- <div class="incoming_msg_img"> <img src="https://ptetutorials.com/images/user-profile.png" alt="bot"> </div> -->
+              <!-- <div class="received_msg"> -->
+                <!-- <div class="received_withd_msg"> -->
+                  <!-- <p>check,..</p> -->
+                  <!-- <span class="time_date"> {{t.hour}}:{{t.minute}}AM    | {{d}}</span> -->
+				  <!-- </div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+		  
+		  
+        </div>
+		<div class="type_msg">
+            <div class="input_msg_write">
+              <input id="input" type="text" class="write_msg" placeholder="Type a message" />
+              <button id="button" class="msg_send_btn" type="button" onclick="passtext()"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+            </div>
+          </div>
+      </div>
+<script>
+var input = document.getElementById("input");
+console.log(input)
+input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+   event.preventDefault();
+   document.getElementById("button").click();
+  }
+});
+</script>
+      
+    </div></div>
+    </body>
+    </html>
